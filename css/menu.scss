@@ -1,16 +1,11 @@
-@import url(https://fonts.googleapis.com/css?family=Vollkorn|Roboto);
-
-$color-background: #F5F5F5;
-$color-main: #FF5252;
+$color-background: #7cb342;
+$color-main: #7cb342;
 $color-active: #FFF;
 $color-link: #FFF;
 
 $button-height: 27px;
 $button-width: 35px;
 
-body {
-  background: $color-background;
-}
 
 .container {
   position: absolute;
@@ -21,7 +16,6 @@ body {
   left: 0;
   margin:  0 auto;
   font-family: 'Roboto', sans-serif;
-
   p {
     font-size: 20px;
   }
@@ -53,12 +47,6 @@ body {
       width: 100%;
     }
   }
-}
-
-h1 {
-  position: relative;
-  text-align: center;
-  font-family: 'Vollkorn', serif;
 }
 
 .button_container {
@@ -123,24 +111,19 @@ h1 {
   visibility: hidden;
   transition: opacity .35s, visibility .35s, height .35s;
   overflow: hidden;
-
+  z-index: 99;
   &.open {
-    opacity: .9;
+    opacity: 1;
     visibility: visible;
     height: 100%;
 
     li {
       animation: fadeInRight .5s ease forwards;
       animation-delay: .35s;
-
-      &:nth-of-type(2) {
-        animation-delay: .4s;
-      }
-      &:nth-of-type(3) {
-        animation-delay: .45s;
-      }
-      &:nth-of-type(4) {
-        animation-delay: .50s;
+      @for $i from 1 through 7 {
+        &:nth-of-type(#{$i}) {
+          animation-delay: (.1 * $i) * 1s;
+        }
       }
     }
   }
@@ -149,10 +132,10 @@ h1 {
     height: 70%;
     top: 50%;
     transform: translateY(-50%);
-    font-size: 50px;
-    font-family: 'Vollkorn', serif;
-    font-weight: 400;
+    font-size: 28px;
+    font-weight: 300;
     text-align: center;
+    text-transform: uppercase;
   }
   ul {
     list-style: none;
@@ -165,7 +148,7 @@ h1 {
     li {
       display: block;
       height: 25%;
-      height: calc(100% / 4);
+      height: calc(100% / 5);
       min-height: 50px;
       position: relative;
       opacity: 0;
