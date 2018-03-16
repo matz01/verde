@@ -573,6 +573,7 @@ button:focus {
 	.section__expander {
 		grid-area: 1 / 2 / 4 / 4;
 		background: var(--color-bg-facts);
+		background-image: url(../img/grass.png);
 		transform-origin: 0 0;
 		left: -2vw;
 		position: relative;
