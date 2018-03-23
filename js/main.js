@@ -335,12 +335,17 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 			var _this4 = this;
 
 			// Navigation
+
 			this.onPrevClick = function () {
 				return _this4.navigate('prev');
 			};
 			this.onNextClick = function () {
 				return _this4.navigate('next');
 			};
+			document.body.addEventListener("wheel", function (e) {
+				if (e.deltaY < 0) _this4.onPrevClick();
+				if (e.deltaY > 0) _this4.onNextClick();
+			});
 			this.DOM.navigation.prevCtrl.addEventListener('click', this.onPrevClick);
 			this.DOM.navigation.nextCtrl.addEventListener('click', this.onNextClick);
 
